@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torneo de Mario Kart 8 — 25 de julio · Mil Encinos</title>
+<meta name="description" content="Torneo de Mario Kart 8 Deluxe — Fiesta del 25 de julio en Mil Encinos, Montemorelos. El premio: AirPods + iPad. El campeón escoge.">
+<meta property="og:title" content="🏁 Torneo de Mario Kart 8 — 25 de julio">
+<meta property="og:description" content="Mundial en serio: fase de grupos, eliminatorias y un solo campeón. El premio: AirPods + iPad. ¡Apúntate!">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0e14;
+    --paper:#fbf6e9;
+    --red:#e0241a;
+    --red-deep:#a8120c;
+    --green:#0c8a4a;
+    --gold:#f4b41a;
+    --blue:#1857c4;
+    --line:rgba(10,14,20,.14);
+    --shadow:6px 6px 0 var(--ink);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Archivo',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ====== textured atmosphere ====== */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:radial-gradient(var(--line) 1px,transparent 1px);
+    background-size:22px 22px;opacity:.5;
+  }
+  .wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 22px}
+
+  /* ====== checkered top strip ====== */
+  .flag{
+    height:18px;width:100%;
+    background:
+      repeating-conic-gradient(var(--ink) 0% 25%, transparent 0% 50%) 0 0 / 18px 18px;
+  }
+
+  /* ====== HERO ====== */
+  header{
+    background:var(--red);
+    color:var(--paper);
+    border-bottom:5px solid var(--ink);
+    position:relative;overflow:hidden;
+  }
+  header::after{
+    content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;
+    background:radial-gradient(circle,var(--red-deep) 0%,transparent 70%);opacity:.6;
+  }
+  .hero{padding:54px 0 60px;position:relative;z-index:1;text-align:center}
+  .kicker{
+    font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.16em;
+    text-transform:uppercase;font-size:.82rem;
+    background:var(--ink);color:var(--gold);display:inline-block;
+    padding:7px 16px;transform:rotate(-1.5deg);margin-bottom:22px;
+  }
+  h1{
+    font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:clamp(3.4rem,13vw,7.5rem);line-height:.86;
+    letter-spacing:.005em;text-transform:uppercase;
+    text-shadow:5px 5px 0 var(--ink);
+    margin-bottom:8px;
+  }
+  h1 .mk{display:block;color:var(--gold)}
+  .when{
+    font-weight:800;font-size:clamp(1rem,3.4vw,1.45rem);
+    text-transform:uppercase;letter-spacing:.03em;margin-bottom:30px;
+  }
+  .when .dot{color:var(--gold);margin:0 8px}
+
+  .prize{
+    background:var(--paper);color:var(--ink);
+    border:4px solid var(--ink);box-shadow:var(--shadow);
+    max-width:560px;margin:0 auto 30px;padding:24px 26px;
+    transform:rotate(-.6deg);
+  }
+  .prize .big{
+    font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,6vw,2.7rem);
+    line-height:1;letter-spacing:.01em;
+  }
+  .prize .big em{font-style:normal;color:var(--red)}
+  .prize p{font-weight:600;margin-top:8px;font-size:1.02rem}
+
+  .cta{
+    display:inline-block;font-family:'Archivo Black',sans-serif;
+    font-size:clamp(1.25rem,4.5vw,1.7rem);text-transform:uppercase;
+    letter-spacing:.02em;color:var(--ink);background:var(--gold);
+    padding:18px 40px;border:4px solid var(--ink);box-shadow:var(--shadow);
+    text-decoration:none;transition:transform .08s ease,box-shadow .08s ease;
+    position:relative;
+  }
+  .cta:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--ink)}
+  .cta:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+  .cta .arrow{display:inline-block;margin-left:8px;transition:transform .15s}
+  .cta:hover .arrow{transform:translateX(5px)}
+
+  .seed{
+    margin-top:30px;font-weight:600;font-size:.98rem;color:var(--paper);
+  }
+  .seed .label{
+    display:block;text-transform:uppercase;letter-spacing:.14em;
+    font-size:.72rem;font-weight:800;color:var(--gold);margin-bottom:7px;
+  }
+  .seed .names{display:flex;flex-wrap:wrap;gap:6px 0;justify-content:center}
+  .seed .names span{position:relative;padding:0 14px;white-space:nowrap}
+  .seed .names span:not(:last-child)::after{
+    content:"";position:absolute;right:-1px;top:50%;width:6px;height:6px;
+    background:var(--gold);border-radius:50%;transform:translateY(-50%);
+  }
+
+  /* ====== SECTIONS ====== */
+  main{padding:56px 0 30px}
+  .card{
+    background:var(--paper);border:3px solid var(--ink);
+    box-shadow:var(--shadow);padding:30px 30px 32px;margin-bottom:30px;
+    position:relative;
+  }
+  .card h2{
+    font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:clamp(1.9rem,6vw,2.7rem);line-height:.95;
+    text-transform:uppercase;letter-spacing:.01em;margin-bottom:14px;
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  }
+  .card h2 .num{
+    font-family:'Archivo Black',sans-serif;font-size:.95rem;
+    background:var(--ink);color:var(--paper);width:38px;height:38px;
+    display:inline-flex;align-items:center;justify-content:center;
+    flex:0 0 auto;transform:rotate(-4deg);
+  }
+  .card.red h2 .num{background:var(--red);color:var(--paper)}
+  .card.green h2 .num{background:var(--green);color:var(--paper)}
+  .card.blue h2 .num{background:var(--blue);color:var(--paper)}
+  .card.gold h2 .num{background:var(--gold);color:var(--ink)}
+  .card p{font-size:1.06rem;margin-bottom:12px}
+  .card p:last-child{margin-bottom:0}
+  .card strong{color:var(--red-deep)}
+  .card em{font-style:italic;font-weight:600}
+
+  .rules{list-style:none;margin-top:6px}
+  .rules li{
+    font-size:1.05rem;font-weight:500;padding:11px 0 11px 38px;
+    border-bottom:1px dashed var(--line);position:relative;
+  }
+  .rules li:last-child{border-bottom:none}
+  .rules li::before{
+    content:"🏁";position:absolute;left:0;top:9px;font-size:1.1rem;
+  }
+  .rules li b{font-weight:800}
+
+  .pill{
+    display:inline-block;background:var(--ink);color:var(--gold);
+    font-weight:800;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 12px;margin-bottom:14px;transform:rotate(-1deg);
+  }
+
+  /* ====== closer ====== */
+  .closer{
+    background:var(--ink);color:var(--paper);text-align:center;
+    border:3px solid var(--ink);box-shadow:var(--shadow);
+    padding:42px 30px;margin-bottom:30px;
+  }
+  .closer .goku{
+    font-family:'Bebas Neue',sans-serif;font-size:clamp(1.7rem,5.5vw,2.6rem);
+    line-height:1.02;letter-spacing:.01em;margin-bottom:6px;
+  }
+  .closer .salty{color:var(--gold)}
+  .closer .fire{font-size:1.5rem;margin-bottom:26px;display:block}
+
+  footer{
+    text-align:center;padding:30px 0 50px;font-weight:600;
+    font-size:.92rem;color:rgba(10,14,20,.6);
+  }
+  footer .vn{color:var(--red-deep);font-weight:800}
+
+  /* ====== load-in animation ====== */
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .6s ease forwards}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.27s}
+  .d4{animation-delay:.4s}.d5{animation-delay:.52s}
+  @media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="flag"></div>
+
+<header>
+  <div class="wrap hero">
+    <span class="kicker reveal d1">⚽ Mundial en serio 🏆</span>
+    <h1 class="reveal d2">Torneo de<span class="mk">Mario Kart 8</span></h1>
+    <p class="when reveal d2">Fiesta del 25 de julio <span class="dot">•</span> Mil Encinos, Montemorelos</p>
+
+    <div class="prize reveal d3">
+      <div class="big">El premio: <em>AirPods + iPad.</em></div>
+      <p>El campeón escoge cuál se lleva. Un torneo, un campeón, y derecho a presumir todo el año. ⚽🏆</p>
+    </div>
+
+    <a class="cta reveal d4" href="https://docs.google.com/forms/d/e/1FAIpQLSdmztzhVy5VwXbDRuEm7k0qWV9lYNFwd79FQZyn-qyjVAtpzQ/viewform">¡Apúntame! <span class="arrow">→</span></a>
+
+    <div class="seed reveal d5">
+      <span class="label">Ya convocados</span>
+      <div class="names">
+        <span>Daniel Cazares</span>
+        <span>Jorge Cazares</span>
+        <span>Lucia Cazares</span>
+        <span>Sarah Cazares</span>
+        <span>Aaron Liu</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="card red">
+    <h2><span class="num">1</span> Cómo se juega ⚽</h2>
+    <p>Tipo Mundial: te toca un grupo de 4 y juegas una mini-copa de 3 carreras. Los primeros de cada grupo avanzan a las eliminatorias, y todo se decide en una gran final — todos alrededor de una sola pantalla — pa' coronar al campeón.</p>
+    <p>La fase de grupos es al mejor de 3 a propósito: un caparazón azul de malas no te deja fuera. <strong>Aquí gana el que maneja, no el que más entrenó.</strong> 🐢</p>
+  </section>
+
+  <section class="card gold">
+    <h2><span class="num">2</span> El reto Hokage 🥋</h2>
+    <p>¿Quedaste en último lugar en la fase de grupos? No te preocupes — todavía puedes ganar algo. Tú eres el <strong>"Hokage del futuro"</strong>: el último lugar de cada grupo se vuelve el Hokage de su equipo.</p>
+    <p>En el reto Hokage, lo único que cuenta son los puntos del Hokage del futuro. Los demás jugadores son sus guardaespaldas: usan sus items para abrirle paso y frenar a los rivales.</p>
+    <p>Es una sola ronda, y el Hokage del futuro que acumule más puntos gana <strong>el premio que el campeón no escogió.</strong></p>
+    <p><em>¿Por qué Hokage? Porque en el anime de Naruto, la aldea entrena y protege al que un día será el más fuerte. Aquí igual: el que apenas empieza hoy es el campeón del mañana. 🍥</em></p>
+  </section>
+
+  <section class="card green">
+    <h2><span class="num">3</span> El calentamiento 🏎️</h2>
+    <p>Cada semana antes de la fiesta subimos una "pista de la semana" al chat. Pon tu mejor tiempo, súbete a la tabla y echa relajo.</p>
+    <p>Esos tiempos nos ayudan a armar los grupos parejos — pa' que a nadie le toque el grupo de la muerte y nadie se duerma. <em>Es opcional, pero es la mitad de la diversión.</em></p>
+  </section>
+
+  <section class="card blue">
+    <h2><span class="num">4</span> Las reglas de la cancha</h2>
+    <p>Pa' que el premio se gane manejando y no por la configuración, todos corremos igual:</p>
+    <ul class="rules">
+      <li><b>Mario Kart 8 Deluxe</b>, 150cc</li>
+      <li>Items <b>encendidos</b> — el caos es sagrado</li>
+      <li>Dirección inteligente <b>apagada</b>, acelerador automático <b>apagado</b></li>
+      <li>Revisamos la consola antes de cada carrera — nadie pierde por un ajuste del menú</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <span class="pill">¿Quién puede jugar?</span>
+    <p>Cualquiera que ya haya jugado antes — no tienes que ser bueno, nomás haber agarrado el control. ¿Tienes un huerquillo que le sabe? Tráetelo.</p>
+    <p><em>(¿Nunca has jugado? Vente igual: échanos porras y, si hay ganas, armamos una categoría para principiantes la próxima.)</em></p>
+  </section>
+
+  <section class="card">
+    <span class="pill">Y de pilón 🎮</span>
+    <h2 style="font-size:clamp(1.6rem,5vw,2.2rem);margin-bottom:10px">N64 clásico</h2>
+    <p>Vamos a tener el <em>Mario Kart 64</em> clásico conectado pa'l que quiera echar la nostalgia. Sin premio, sin presión, puro vacile entre carrera y carrera.</p>
+  </section>
+
+  <section class="closer">
+    <div class="goku">A entrenar como Goku, compadre.<br><span class="salty">Ay güey… va estar bien cabrón.</span></div>
+    <span class="fire">🐉🔥</span>
+    <div>
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdmztzhVy5VwXbDRuEm7k0qWV9lYNFwd79FQZyn-qyjVAtpzQ/viewform">¡Me apunto! <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">25 de julio · Mil Encinos, Montemorelos · <span class="vn">AirPods + iPad</span></div>
+</footer>
+
+</body>
+</html>
